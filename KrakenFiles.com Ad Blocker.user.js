@@ -7,6 +7,7 @@
 // @icon         https://krakenfiles.com/images/favicon.png
 // @match        *://krakenfiles.com/*
 // @match        *://www.krakenfiles.com/*
+// @updateURL    https://github.com/danthekidd/KrakenFiles.com-Ad-Blocker/raw/refs/heads/main/KrakenFiles.com%20Ad%20Blocker.user.js
 // @grant        none
 // ==/UserScript==
 
