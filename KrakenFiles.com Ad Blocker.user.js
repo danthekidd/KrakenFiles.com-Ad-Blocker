@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         KrakenFiles.com Ad Blocker
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  we all hate ads, but especially the annoying ones
 // @author       danthekidd
 // @icon         https://krakenfiles.com/images/favicon.png
@@ -18,12 +18,21 @@
         const iframes = document.querySelectorAll('iframe');
         iframes.forEach(iframe => {
             iframe.style.display = 'none';
-            console.log('Hid an iframe');
         });
     }
 
-    const observer = new MutationObserver(hideAllIframes);
-    observer.observe(document.body, { childList: true, subtree: true });
+    function removeMaliciousScripts() {
+        const scripts = document.querySelectorAll('script[src]');
+        scripts.forEach(script => {
+            if (script.src.includes('naupsithizeekee.com')) {
+                script.remove();
+            }
+        });
+    }
 
-    hideAllIframes();
+    setInterval(() => {
+        hideAllIframes();
+        removeMaliciousScripts();
+    }, 100);
+
 })();
